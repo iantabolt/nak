@@ -75,6 +75,12 @@ object Example {
   }
 
   /**
+   * Allows for pattern matching on an Example.
+   */
+  def unapply[L,T](o: Example[L,T]): Option[(L,T)] =
+    Some((o.label, o.features))
+
+  /**
    * Lifts a function to operate over Examples,
    * Rather than the contained object.
    */
